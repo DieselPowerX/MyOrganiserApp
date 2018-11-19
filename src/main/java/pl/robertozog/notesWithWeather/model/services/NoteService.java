@@ -7,6 +7,8 @@ import pl.robertozog.notesWithWeather.model.entities.UserEntity;
 import pl.robertozog.notesWithWeather.model.forms.NoteForm;
 import pl.robertozog.notesWithWeather.model.repository.NoteRepository;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -24,6 +26,7 @@ public class NoteService {
         NoteEntity newNote = new NoteEntity(noteForm.getTitle(),noteForm.getMessage(),noteForm.getDueDate(),noteForm.getPriority(),userId);
 
         noteRepository.save(newNote);
+
     }
 
     public void deleteNote(int id){
@@ -34,4 +37,6 @@ public class NoteService {
         System.out.println(id);
        return noteRepository.findByUser_Id(id);
     }
+
+
 }

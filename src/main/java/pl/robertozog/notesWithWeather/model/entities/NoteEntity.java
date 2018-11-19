@@ -4,6 +4,7 @@ package pl.robertozog.notesWithWeather.model.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,7 +15,7 @@ public class NoteEntity {
     private int id;
     private String title;
     @Column(name = "due_date")
-    private String dueDate;
+    private LocalDate dueDate;
     private String message;
     private int priority;
 
@@ -25,7 +26,7 @@ public class NoteEntity {
 
 
 
-    public NoteEntity(String title, String message, String dueDate, int priority, int userId){
+    public NoteEntity(String title, String message, LocalDate dueDate, int priority, int userId){
         this.title = title;
         this.message = message;
         this.dueDate = dueDate;

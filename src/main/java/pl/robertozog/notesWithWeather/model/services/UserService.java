@@ -7,6 +7,7 @@ import pl.robertozog.notesWithWeather.model.entities.UserEntity;
 import pl.robertozog.notesWithWeather.model.forms.UserForm;
 import pl.robertozog.notesWithWeather.model.repository.UserRepository;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -27,7 +28,7 @@ public class UserService {
 
     public boolean addUser(UserForm user){
 
-        if(checkPasswordRepeat(user) && !ifLoginExist(user)) {
+        if(checkPasswordRepeat(user) && !ifLoginExist(user) && !user.getLogin().isEmpty()) {
             UserEntity userEntity = new UserEntity(user.getLogin(),passwordHashService.hash(user.getPassword()) ,user.getCity(),user.getPostCode());
             userRepository.save(userEntity);
             return true;
