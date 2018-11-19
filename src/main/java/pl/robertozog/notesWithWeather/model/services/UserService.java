@@ -11,24 +11,25 @@ public class UserService {
 
     final
     UserRepository userRepository;
+    PasswordHashService passwordHashService;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordHashService passwordHashService) {
         this.userRepository = userRepository;
+        this.passwordHashService = passwordHashService;
     }
 
 
-    public void addUser(UserForm user){
+    public boolean addUser(UserForm user){
 
         if(checkPasswordRepeat(user)) {
-            UserEntity userEntity = new UserEntity(user.getLogin(),user.getPassword(),user.getCity(),user.getPostCode());
+            UserEntity userEntity = new UserEntity(user.getLogin(),passwordHashService.hash(user.getPassword()) ,user.getCity(),user.getPostCode());
             userRepository.save(userEntity);
-        }
-
-
+            return true;
+        }return false;
     }
 
     private boolean checkPasswordRepeat(UserForm user) {
-        return true;
+        return user.getPassword().equals(user.getPasswordRepeat());
     }
 }

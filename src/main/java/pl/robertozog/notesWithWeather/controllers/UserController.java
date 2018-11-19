@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.robertozog.notesWithWeather.model.forms.UserForm;
 import pl.robertozog.notesWithWeather.model.services.UserService;
 
@@ -30,10 +31,9 @@ public class UserController {
     }
 
     @PostMapping("/user/registry")
-    public String regUser(@ModelAttribute("regUser") UserForm user){
+    public String regUser(@ModelAttribute("regUser") UserForm user, RedirectAttributes redirectAttributes){
 
-        userService.addUser(user);
-
+        redirectAttributes.addFlashAttribute("matchesPassword", userService.addUser(user));
         return "redirect:/";
     }
 

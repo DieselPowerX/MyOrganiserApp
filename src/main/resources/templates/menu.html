@@ -23,7 +23,9 @@
         <input type="text" th:field="*{city}" placeholder="City"><br/>
         <input type="text" th:field="*{postCode}" placeholder="Post Code"><br/>
         <input type="submit" value="register"><br/>
+
     </form>
+    <h3 th:if="${matchesPassword != null}" th:text="${matchesPassword ? 'You are registered' : 'You are not registered'}"></h3>
     <br/>
 
 
