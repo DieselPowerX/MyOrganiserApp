@@ -8,7 +8,7 @@
 <a href="/user/logout">Log out</a>
 
 <li th:each="note : ${noteList}">
-        <td th:style="${note.getDueDate().isBefore(#dates.createNow()) ? 'color: red' : 'color: green'}" th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage() + ' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}"></td>
+        <span th:style="${note.getDueDate().isBefore(currentDate) ? 'color: red' : 'color: green'}" th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage() + ' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}"></span>
     <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
 
 </li>

@@ -38,6 +38,8 @@ public class NoteController {
 
         model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
         model.addAttribute("note", new NoteForm());
+        model.addAttribute("currentDate", noteService.getCurrentDate());
+
         return "dashboard";
     }
 
@@ -45,6 +47,7 @@ public class NoteController {
     public String addNote(@ModelAttribute NoteForm noteForm){
         noteService.addNote(noteForm,userSession.getId());
         return"redirect:/user/dashboard";
+
     }
 
     @GetMapping("/user/dashboard/deletenote/{id}")
