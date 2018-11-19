@@ -1,6 +1,7 @@
 package pl.robertozog.notesWithWeather.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,12 @@ import pl.robertozog.notesWithWeather.model.services.UserService;
 
 @Controller
 public class NoteController {
+
+
+    @Value("${api.key}")
+    String apiKey;
+
+
 
     final
     UserSession userSession;
