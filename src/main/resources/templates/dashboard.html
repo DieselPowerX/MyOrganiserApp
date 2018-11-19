@@ -7,7 +7,9 @@
 <body>
 
 <li th:each="note : ${noteList}">
-    <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage() + ' Due date: ' + note.getDueDate()}"></span>
+    <td th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage() + ' Due date: ' + note.getDueDate()}"></td>
+    <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
+
 </li>
 
 <form action="/user/dashboard/addnote" method="post" th:object="${note}">

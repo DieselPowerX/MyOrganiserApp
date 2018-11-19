@@ -48,7 +48,8 @@ public class UserService {
         if (userOptional.isPresent()) {
             if (passwordHashService.matches(user.getPassword(), userOptional.get().getPassword())) {
                 userSession.setLogin(true);
-                userSession.setUserEntity(userOptional.get());
+                userSession.setLoginUser(userOptional.get().getLogin());
+                userSession.setId(userOptional.get().getId());
             }
         }
         return userSession.isLogin();

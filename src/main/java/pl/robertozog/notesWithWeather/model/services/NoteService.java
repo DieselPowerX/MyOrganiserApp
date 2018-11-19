@@ -20,9 +20,14 @@ public class NoteService {
     }
 
 
-    public void addNote(NoteForm noteForm, UserEntity user){
-        NoteEntity newNote = new NoteEntity(noteForm.getTitle(),noteForm.getMessage(),noteForm.getDueDate(),noteForm.getPriority(),user);
+    public void addNote(NoteForm noteForm, int userId){
+        NoteEntity newNote = new NoteEntity(noteForm.getTitle(),noteForm.getMessage(),noteForm.getDueDate(),noteForm.getPriority(),userId);
+
         noteRepository.save(newNote);
+    }
+
+    public void deleteNote(int id){
+        noteRepository.deleteById(id);
     }
 
     public List<NoteEntity> getAllNotes(int id){

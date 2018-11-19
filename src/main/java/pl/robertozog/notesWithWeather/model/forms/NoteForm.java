@@ -2,6 +2,8 @@ package pl.robertozog.notesWithWeather.model.forms;
 
 import lombok.Data;
 
+
+
 @Data
 public class NoteForm {
     private String title;

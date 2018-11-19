@@ -24,12 +24,13 @@ public class NoteEntity {
 
 
 
-    public NoteEntity(String title, String message, String dueDate, int priority, UserEntity user){
+
+    public NoteEntity(String title, String message, String dueDate, int priority, int userId){
         this.title = title;
         this.message = message;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.user = user;
+        this.user = new UserEntity(userId);
     }
 
     public NoteEntity(){}

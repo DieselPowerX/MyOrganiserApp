@@ -22,6 +22,10 @@ public class UserEntity {
     @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<NoteEntity> userNote;
 
+
+    public UserEntity(int id){
+        this.id = id;
+    }
     public UserEntity(String login, String password, String city, String postCode){
         this.login = login;
         this.city = city;

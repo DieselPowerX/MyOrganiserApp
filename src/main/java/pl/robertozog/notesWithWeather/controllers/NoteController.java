@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.robertozog.notesWithWeather.model.UserSession;
 import pl.robertozog.notesWithWeather.model.forms.NoteForm;
@@ -28,15 +29,23 @@ public class NoteController {
     @GetMapping("/user/dashboard")
     public String getDashboard(Model model){
 
-        model.addAttribute("noteList", noteService.getAllNotes(userSession.getUserEntity().getId()));
+        model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
         model.addAttribute("note", new NoteForm());
         return "dashboard";
     }
 
     @PostMapping("/user/dashboard/addnote")
     public String addNote(@ModelAttribute NoteForm noteForm){
-
-        noteService.addNote(noteForm,userSession.getUserEntity());
+        noteService.addNote(noteForm,userSession.getId());
         return"redirect:/user/dashboard";
     }
+
+    @GetMapping("/user/dashboard/deletenote/{id}")
+    public String deleteNote(@PathVariable("id") int id){
+
+        noteService.deleteNote(id);
+
+        return "redirect:/user/dashboard";
+    }
+
 }

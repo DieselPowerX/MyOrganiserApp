@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import pl.robertozog.notesWithWeather.model.entities.UserEntity;
+
 
 @Component
 @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -12,7 +12,8 @@ import pl.robertozog.notesWithWeather.model.entities.UserEntity;
 public class UserSession {
 
         private boolean isLogin;
-        private UserEntity userEntity;
+        private int id;
+        private String loginUser;
 
 
 }
