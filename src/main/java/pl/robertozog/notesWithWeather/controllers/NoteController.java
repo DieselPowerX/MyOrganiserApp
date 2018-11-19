@@ -28,7 +28,7 @@ public class NoteController {
     @GetMapping("/user/dashboard")
     public String getDashboard(Model model){
 
-        model.addAttribute("noteList", userSession.getUserEntity().getUserNote());
+        model.addAttribute("noteList", noteService.getAllNotes(userSession.getUserEntity().getId()));
         model.addAttribute("note", new NoteForm());
         return "dashboard";
     }

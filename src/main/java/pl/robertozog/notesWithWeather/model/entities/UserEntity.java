@@ -19,7 +19,7 @@ public class UserEntity {
     @Column(name="post_code")
     private String postCode;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<NoteEntity> userNote;
 
     public UserEntity(String login, String password, String city, String postCode){
