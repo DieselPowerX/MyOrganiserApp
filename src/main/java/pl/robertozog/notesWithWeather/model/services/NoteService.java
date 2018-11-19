@@ -31,6 +31,7 @@ public class NoteService {
     }
 
     public List<NoteEntity> getAllNotes(int id){
+        System.out.println(id);
        return noteRepository.findByUser_Id(id);
     }
 }

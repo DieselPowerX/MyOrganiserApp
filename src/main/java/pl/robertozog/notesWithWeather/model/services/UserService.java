@@ -54,5 +54,10 @@ public class UserService {
         }
         return userSession.isLogin();
     }
+    public void resetSession(){
+        userSession.setLoginUser(null);
+        userSession.setLogin(false);
+        userSession.setLoginUser(null);
+    }
 }
 
