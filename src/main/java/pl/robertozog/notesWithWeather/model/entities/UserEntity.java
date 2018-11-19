@@ -21,4 +21,13 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<NoteEntity> userNote;
+
+    public UserEntity(String login, String password, String city, String postCode){
+        this.login = login;
+        this.city = city;
+        this.password = password;
+        this.postCode = postCode;
+    }
+
+    public UserEntity(){}
 }
