@@ -9,7 +9,10 @@ import pl.robertozog.notesWithWeather.model.repository.NoteRepository;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class NoteService {
@@ -34,10 +37,16 @@ public class NoteService {
     }
 
     public List<NoteEntity> getAllNotes(int id){
-        System.out.println(id);
-       return noteRepository.findByUser_Id(id);
+       return sortedList(noteRepository.findByUser_Id(id));
+
     }
 
+    private List<NoteEntity> sortedList(List<NoteEntity> notesList) {
+       return   notesList
+               .stream()
+               .sorted((s,s1)->Integer.compare(s.getPriority(),s1.getPriority())*-1)
+               .collect(Collectors.toList());
+    }
 
     public LocalDate getCurrentDate(){
 
