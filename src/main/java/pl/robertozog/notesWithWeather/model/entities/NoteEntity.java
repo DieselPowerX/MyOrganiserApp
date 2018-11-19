@@ -22,6 +22,14 @@ public class NoteEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    public NoteEntity(String title, String message, String dueDate, int priority, UserEntity user){
+        this.title = title;
+        this.message = message;
+        this.dueDate = dueDate;
+        this.priority = priority;
+        this.user = user;
+    }
 
+    public NoteEntity(){}
 
 }

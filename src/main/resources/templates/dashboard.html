@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<li th:each="note : ${noteList}">
+    <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage() + ' Due date: ' + note.getDueDate()}"></span>
+</li>
+
+<form action="/user/dashboard/addnote" method="post" th:object="${note}">
+    <input type="text" th:field="*{title}" placeholder="title">
+    <input type="text" th:field="*{message}" placeholder="message">
+    <input type="date" th:field="*{dueDate}" placeholder="due date">
+    <input type="number" th:field="*{priority}" placeholder="priority">
+    <input type="submit" vale="add note">
+
+</form>
+</body>
+</html>

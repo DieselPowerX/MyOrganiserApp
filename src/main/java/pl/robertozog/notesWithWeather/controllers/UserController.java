@@ -40,8 +40,9 @@ public class UserController {
     @PostMapping("/user/login")
     public String logUser(@ModelAttribute("logUser") UserForm user){
 
-
-
+        if(userService.tryLogIn(user)){
+            return "redirect:/user/dashboard";
+        }
 
         return "redirect:/";
     }
