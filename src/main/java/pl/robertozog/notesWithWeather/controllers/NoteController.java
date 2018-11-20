@@ -31,8 +31,11 @@ public class NoteController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/user/dashboard")
-    public String getDashboard(Model model) {
+
+
+    @GetMapping("/{user}/dashboard")
+    public String getDashboard(Model model){
+
         model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
         model.addAttribute("note", new NoteForm());
         model.addAttribute("currentDate", noteService.getCurrentDate());

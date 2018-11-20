@@ -41,8 +41,10 @@ public class UserController {
     @PostMapping("/user/login")
     public String logUser(@ModelAttribute("logUser") UserForm user, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("error", userService.logErrors(user));
-        if (userService.tryLogIn(user)) {
-            return "redirect:/user/dashboard";
+
+        if(userService.tryLogIn(user)){
+            return "redirect:/" + user.getLogin() + " /dashboard";
+
         }
         return "redirect:/";
     }
