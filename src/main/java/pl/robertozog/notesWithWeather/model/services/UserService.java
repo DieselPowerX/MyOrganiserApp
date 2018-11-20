@@ -26,23 +26,48 @@ public class UserService {
     }
 
 
-    public boolean addUser(UserForm user){
+    public void addUser(UserForm user) {
 
-        if(checkPasswordRepeat(user) && !ifLoginExist(user) && !user.getLogin().isEmpty()) {
-            UserEntity userEntity = new UserEntity(user.getLogin(),passwordHashService.hash(user.getPassword()) ,user.getCity(),user.getPostCode());
-            userRepository.save(userEntity);
-            return true;
-        }return false;
+        UserEntity userEntity = new UserEntity(user.getLogin(), passwordHashService.hash(user.getPassword()), user.getCity(), user.getPostCode());
+        userRepository.save(userEntity);
+
+    }
+
+    public String regErrors(UserForm user) {
+
+        if (user.getLogin().isEmpty() ||
+                user.getPassword().isEmpty() ||
+                user.getPasswordRepeat().isEmpty() ||
+                user.getCity().isEmpty() ||
+                user.getPostCode().isEmpty()) {
+            return "Data incomplite";
+        }
+        if (!checkPasswordRepeat(user)) {
+            return "Password do not mach";
+        }
+        if (ifLoginExist(user)) {
+            return "Login exist";
+        }
+
+        return "Data correct";
+    }
+
+    public String logErrors(UserForm user) {
+        if (user.getLogin().isEmpty() || user.getPassword().isEmpty()) {
+            return "Login or password do not mach";
+        }
+        return "Logged in";
     }
 
     private boolean checkPasswordRepeat(UserForm user) {
         return user.getPassword().equals(user.getPasswordRepeat());
     }
 
-    private boolean ifLoginExist(UserForm user){
+    private boolean ifLoginExist(UserForm user) {
 
         return userRepository.existsByLogin(user.getLogin());
     }
+
     public boolean tryLogIn(UserForm user) {
 
         Optional<UserEntity> userOptional = userRepository.getUserByLogin(user.getLogin());
@@ -56,7 +81,8 @@ public class UserService {
         }
         return userSession.isLogin();
     }
-    public void resetSession(){
+
+    public void resetSession() {
         userSession.setLoginUser(null);
         userSession.setLogin(false);
         userSession.setLoginUser(null);

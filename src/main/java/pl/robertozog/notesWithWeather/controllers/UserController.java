@@ -34,13 +34,18 @@ public class UserController {
     @PostMapping("/user/registry")
     public String regUser(@ModelAttribute("regUser") UserForm user, RedirectAttributes redirectAttributes){
 
-        redirectAttributes.addFlashAttribute("matchesPassword", userService.addUser(user));
+        redirectAttributes.addFlashAttribute("error", userService.regErrors(user));
+
+        if(userService.regErrors(user).equals("Data correct")){
+            userService.addUser(user);
+        }
+
         return "redirect:/";
     }
 
     @PostMapping("/user/login")
-    public String logUser(@ModelAttribute("logUser") UserForm user){
-
+    public String logUser(@ModelAttribute("logUser") UserForm user, RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("error", userService.logErrors(user));
         if(userService.tryLogIn(user)){
             return "redirect:/user/dashboard";
         }

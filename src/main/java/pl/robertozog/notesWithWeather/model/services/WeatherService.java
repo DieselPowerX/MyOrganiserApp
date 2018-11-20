@@ -22,7 +22,6 @@ public class WeatherService {
         return convertJsonToWeatherDto(readWeabSite("https://api.openweathermap.org/data/2.5/weather?q="
                 + city +
                 "&appid=" + appiKey));
-
     }
 
     @Bean
@@ -51,9 +50,7 @@ public class WeatherService {
         } catch (IOException e) {
             System.out.println("brak polaczenia z internetem");
             e.printStackTrace();
-
         }
         return sb.toString();
     }
-
 }
