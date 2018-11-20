@@ -42,6 +42,7 @@ public class NoteController {
         model.addAttribute("note", new NoteForm());
         model.addAttribute("currentDate", noteService.getCurrentDate());
         model.addAttribute("weather",weatherService.loadWeather(userSession.getCity(),apiKey));
+        model.addAttribute("city", userSession.getCity());
 
         return "dashboard";
     }
