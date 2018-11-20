@@ -51,6 +51,7 @@ public class UserService {
                 userSession.setLogin(true);
                 userSession.setLoginUser(userOptional.get().getLogin());
                 userSession.setId(userOptional.get().getId());
+                userSession.setCity(userOptional.get().getCity());
             }
         }
         return userSession.isLogin();

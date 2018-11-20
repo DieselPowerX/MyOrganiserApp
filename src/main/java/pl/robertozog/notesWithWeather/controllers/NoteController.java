@@ -11,24 +11,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.robertozog.notesWithWeather.model.UserSession;
 import pl.robertozog.notesWithWeather.model.forms.NoteForm;
 import pl.robertozog.notesWithWeather.model.services.NoteService;
-import pl.robertozog.notesWithWeather.model.services.UserService;
+import pl.robertozog.notesWithWeather.model.services.WeatherService;
 
 @Controller
 public class NoteController {
 
 
 
-
+    @Value("${api.key}")
+    String apiKey;
 
 
     final
     UserSession userSession;
     NoteService noteService;
+    WeatherService weatherService;
 
     @Autowired
-    public NoteController(UserSession userSession,NoteService noteService) {
+    public NoteController(UserSession userSession,NoteService noteService,WeatherService weatherService) {
         this.userSession = userSession;
         this.noteService = noteService;
+        this.weatherService = weatherService;
     }
 
 
@@ -38,6 +41,7 @@ public class NoteController {
         model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
         model.addAttribute("note", new NoteForm());
         model.addAttribute("currentDate", noteService.getCurrentDate());
+        model.addAttribute("weather",weatherService.loadWeather(userSession.getCity(),apiKey));
 
         return "dashboard";
     }

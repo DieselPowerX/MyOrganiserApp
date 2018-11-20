@@ -14,6 +14,7 @@ public class UserSession {
         private boolean isLogin;
         private int id;
         private String loginUser;
+        private String city;
 
 
 }
