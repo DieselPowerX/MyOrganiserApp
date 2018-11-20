@@ -17,8 +17,7 @@ import pl.robertozog.notesWithWeather.model.services.UserService;
 public class NoteController {
 
 
-    @Value("${api.key}")
-    String apiKey;
+
 
 
 

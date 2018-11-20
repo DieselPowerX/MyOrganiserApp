@@ -9,7 +9,7 @@
 
 <li th:each="note : ${noteList}">
     <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage()}"></span>
-    <span th:style="${note.getDueDate().isBefore(currentDate) ? 'color: red' : 'color: green'}" th:text="${' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}" ></span>
+    <span th:style="${note.getDueDate().isAfter(currentDate) ? 'color: green' : 'color: red'}" th:text="${' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}" ></span>
     <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
 
 </li>
