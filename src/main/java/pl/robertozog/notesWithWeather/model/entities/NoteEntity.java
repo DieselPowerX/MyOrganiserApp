@@ -1,6 +1,5 @@
 package pl.robertozog.notesWithWeather.model.entities;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,10 +22,7 @@ public class NoteEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-
-
-
-    public NoteEntity(String title, String message, LocalDate dueDate, int priority, int userId){
+    public NoteEntity(String title, String message, LocalDate dueDate, int priority, int userId) {
         this.title = title;
         this.message = message;
         this.dueDate = dueDate;
@@ -34,7 +30,6 @@ public class NoteEntity {
         this.user = new UserEntity(userId);
     }
 
-    public NoteEntity(){}
-
-
+    public NoteEntity() {
+    }
 }

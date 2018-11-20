@@ -25,12 +25,14 @@ public class UserService {
         this.userSession = userSession;
     }
 
-
     public void addUser(UserForm user) {
 
-        UserEntity userEntity = new UserEntity(user.getLogin(), passwordHashService.hash(user.getPassword()), user.getCity(), user.getPostCode());
-        userRepository.save(userEntity);
+        UserEntity userEntity = new UserEntity(user.getLogin(),
+                passwordHashService.hash(user.getPassword()),
+                user.getCity(),
+                user.getPostCode());
 
+        userRepository.save(userEntity);
     }
 
     public String regErrors(UserForm user) {

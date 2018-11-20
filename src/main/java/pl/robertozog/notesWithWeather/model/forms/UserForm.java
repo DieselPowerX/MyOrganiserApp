@@ -9,5 +9,4 @@ public class UserForm {
     private String passwordRepeat;
     private String city;
     private String postCode;
-
 }

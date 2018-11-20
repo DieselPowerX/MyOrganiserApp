@@ -5,25 +5,30 @@
     <title>Dashboard</title>
 </head>
 <body>
-<a href="/user/logout">Log out</a>
 
-<li th:each="note : ${noteList}">
-    <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage()}"></span>
-    <span th:style="${note.getDueDate().isAfter(currentDate) ? 'color: green' : 'color: red'}" th:text="${' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}" ></span>
-    <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
+<div style="text-align: center">
+    <a href="/user/logout">Log out</a>
 
-</li>
+    <ul>
+        <li th:each="note : ${noteList}" style="list-style: none">
+            <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage()}"></span>
+            <span th:style="${note.getDueDate().isAfter(currentDate) ? 'color: green' : 'color: red'}"
+                  th:text="${' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}"></span>
+            <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
+        </li>
+    </ul>
+    <form action="/user/dashboard/addnote" method="post" th:object="${note}">
+        <input type="text" th:field="*{title}" placeholder="title">
+        <input type="text" th:field="*{message}" placeholder="message">
+        <input type="date" th:field="*{dueDate}" placeholder="due date">
+        <input type="number" th:field="*{priority}" placeholder="priority">
+        <input type="submit" vale="add note"> <br> <br>
+    </form>
 
-<form action="/user/dashboard/addnote" method="post" th:object="${note}">
-    <input type="text" th:field="*{title}" placeholder="title">
-    <input type="text" th:field="*{message}" placeholder="message">
-    <input type="date" th:field="*{dueDate}" placeholder="due date">
-    <input type="number" th:field="*{priority}" placeholder="priority">
-    <input type="submit" vale="add note"> <br> <br>
+    <h1 th:text="${'Weather for: ' + city}"></h1>
+    <h1 th:text="${'Temp: ' + weather.getTempDto().getTemp() + 'C'}"></h1>
+    <h1 th:text="${'Clouds: ' + weather.getClouds().getAll() + '%'}"></h1>
+</div>
 
-</form>
-<h1 th:text="${'Weather for: ' + city}"></h1>
-<h1 th:text="${'Temp: ' + weather.getTempDto().getTemp() + 'C'}"></h1>
-<h1 th:text="${'Clouds: ' + weather.getClouds().getAll() + '%'}"></h1>
 </body>
 </html>

@@ -16,11 +16,8 @@ import pl.robertozog.notesWithWeather.model.services.WeatherService;
 @Controller
 public class NoteController {
 
-
-
     @Value("${api.key}")
     String apiKey;
-
 
     final
     UserSession userSession;
@@ -28,38 +25,31 @@ public class NoteController {
     WeatherService weatherService;
 
     @Autowired
-    public NoteController(UserSession userSession,NoteService noteService,WeatherService weatherService) {
+    public NoteController(UserSession userSession, NoteService noteService, WeatherService weatherService) {
         this.userSession = userSession;
         this.noteService = noteService;
         this.weatherService = weatherService;
     }
 
-
     @GetMapping("/user/dashboard")
-    public String getDashboard(Model model){
-
+    public String getDashboard(Model model) {
         model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
         model.addAttribute("note", new NoteForm());
         model.addAttribute("currentDate", noteService.getCurrentDate());
-        model.addAttribute("weather",weatherService.loadWeather(userSession.getCity(),apiKey));
+        model.addAttribute("weather", weatherService.loadWeather(userSession.getCity(), apiKey));
         model.addAttribute("city", userSession.getCity());
-
         return "dashboard";
     }
 
     @PostMapping("/user/dashboard/addnote")
-    public String addNote(@ModelAttribute NoteForm noteForm){
-        noteService.addNote(noteForm,userSession.getId());
-        return"redirect:/user/dashboard";
-
-    }
-
-    @GetMapping("/user/dashboard/deletenote/{id}")
-    public String deleteNote(@PathVariable("id") int id){
-
-        noteService.deleteNote(id);
-
+    public String addNote(@ModelAttribute NoteForm noteForm) {
+        noteService.addNote(noteForm, userSession.getId());
         return "redirect:/user/dashboard";
     }
 
+    @GetMapping("/user/dashboard/deletenote/{id}")
+    public String deleteNote(@PathVariable("id") int id) {
+        noteService.deleteNote(id);
+        return "redirect:/user/dashboard";
+    }
 }

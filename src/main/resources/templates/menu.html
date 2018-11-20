@@ -8,13 +8,13 @@
 
 <div style="text-align: center">
     <h1>Welcome to my WeatherApp</h1>
-    <h2> Login  </h2>
+    <h2> Login </h2>
     <form action="/user/login" method="post" th:object="${logUser}">
         <input type="text" th:field="*{login}" placeholder="Name"> <br/>
         <input type="password" th:field="*{password}" placeholder="Password"> <br/>
         <input type="submit" value="login"><br/>
     </form>
-    <h2>  Registration </h2>
+    <h2> Registration </h2>
     <form action="/user/registry" method="post" th:object="${regUser}">
         <p th:errors="*{login}"></p>
         <input type="text" th:field="*{login}" placeholder="Name"> <br/>
@@ -25,10 +25,8 @@
         <input type="submit" value="register"><br/>
 
     </form>
-    <h3  th:text="${error}"></h3>
+    <h3 th:text="${error}"></h3>
     <br/>
-
-
 
 
 </div>

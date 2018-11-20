@@ -24,34 +24,33 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
-
-    public void addNote(NoteForm noteForm, int userId){
-        NoteEntity newNote = new NoteEntity(noteForm.getTitle(),noteForm.getMessage(),noteForm.getDueDate(),noteForm.getPriority(),userId);
+    public void addNote(NoteForm noteForm, int userId) {
+        NoteEntity newNote = new NoteEntity(noteForm.getTitle(),
+                noteForm.getMessage(),
+                noteForm.getDueDate(),
+                noteForm.getPriority(),
+                userId);
 
         noteRepository.save(newNote);
-
     }
 
-    public void deleteNote(int id){
+    public void deleteNote(int id) {
         noteRepository.deleteById(id);
     }
 
-    public List<NoteEntity> getAllNotes(int id){
-       return sortedList(noteRepository.findByUser_Id(id));
+    public List<NoteEntity> getAllNotes(int id) {
+        return sortedList(noteRepository.findByUser_Id(id));
 
     }
 
     private List<NoteEntity> sortedList(List<NoteEntity> notesList) {
-       return   notesList
-               .stream()
-               .sorted((s,s1)->Integer.compare(s.getPriority(),s1.getPriority())*-1)
-               .collect(Collectors.toList());
+        return notesList
+                .stream()
+                .sorted((s, s1) -> Integer.compare(s.getPriority(), s1.getPriority()) * -1)
+                .collect(Collectors.toList());
     }
 
-    public LocalDate getCurrentDate(){
-
-
+    public LocalDate getCurrentDate() {
         return LocalDate.now();
-
     }
 }

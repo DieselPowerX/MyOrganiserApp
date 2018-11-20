@@ -13,10 +13,7 @@ import java.net.URL;
 @Service
 public class WeatherService {
 
-
-
-    public WeatherDto loadWeather(String city, String appiKey){
-
+    public WeatherDto loadWeather(String city, String appiKey) {
         loadGsonInstance();
 
         return convertJsonToWeatherDto(readWeabSite("https://api.openweathermap.org/data/2.5/weather?q="
@@ -25,15 +22,15 @@ public class WeatherService {
     }
 
     @Bean
-    public Gson loadGsonInstance(){
+    public Gson loadGsonInstance() {
         return new Gson();
     }
 
-    private WeatherDto convertJsonToWeatherDto(String json){
-        return loadGsonInstance().fromJson(json,WeatherDto.class);
+    private WeatherDto convertJsonToWeatherDto(String json) {
+        return loadGsonInstance().fromJson(json, WeatherDto.class);
     }
 
-    private String readWeabSite(String url){
+    private String readWeabSite(String url) {
 
         StringBuilder sb = new StringBuilder();
         HttpURLConnection http;
@@ -43,8 +40,8 @@ public class WeatherService {
             InputStream inputStream = http.getInputStream();
 
             int data;
-            while((data = inputStream.read()) != -1){
-                sb.append((char)data);
+            while ((data = inputStream.read()) != -1) {
+                sb.append((char) data);
             }
             inputStream.close();
         } catch (IOException e) {

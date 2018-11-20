@@ -19,5 +19,4 @@ public class PasswordHashService {
     public BCryptPasswordEncoder getPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
 }

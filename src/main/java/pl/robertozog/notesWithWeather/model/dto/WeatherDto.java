@@ -1,14 +1,11 @@
 package pl.robertozog.notesWithWeather.model.dto;
 
-import lombok.Data;
-
-@Data
 public class WeatherDto {
 
     private TempDto main;
     private CloudDto clouds;
 
-    public TempDto getTempDto(){
+    public TempDto getTempDto() {
         return main;
     }
 
@@ -16,7 +13,7 @@ public class WeatherDto {
         return clouds;
     }
 
-    public static class CloudDto{
+    public static class CloudDto {
         private int all;
 
         public int getAll() {
@@ -27,12 +24,13 @@ public class WeatherDto {
             this.all = all;
         }
     }
-    public static class TempDto{
+
+    public static class TempDto {
 
         private double temp;
 
         public double getTemp() {
-            return Math.round(temp-273.15);
+            return Math.round(temp - 273.15);
         }
 
         public void setTemp(double temp) {

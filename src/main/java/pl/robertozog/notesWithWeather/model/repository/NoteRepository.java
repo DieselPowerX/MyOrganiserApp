@@ -10,7 +10,4 @@ import java.util.List;
 public interface NoteRepository extends CrudRepository<NoteEntity, Integer> {
 
     List<NoteEntity> findByUser_Id(int id);
-
-
-
 }
