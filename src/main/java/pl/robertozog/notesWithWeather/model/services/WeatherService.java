@@ -1,7 +1,7 @@
 package pl.robertozog.notesWithWeather.model.services;
 
 import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import pl.robertozog.notesWithWeather.model.dto.WeatherDto;
 
@@ -14,11 +14,10 @@ import java.net.URL;
 public class WeatherService {
 
 
-    Gson gson;
 
     public WeatherDto loadWeather(String city, String appiKey){
 
-        loadWeatherService();
+        loadGsonInstance();
 
         return convertJsonToWeatherDto(readWeabSite("https://api.openweathermap.org/data/2.5/weather?q="
                 + city +
@@ -26,12 +25,13 @@ public class WeatherService {
 
     }
 
-    public void loadWeatherService(){
-        gson = new Gson();
+    @Bean
+    public Gson loadGsonInstance(){
+        return new Gson();
     }
 
     private WeatherDto convertJsonToWeatherDto(String json){
-        return gson.fromJson(json,WeatherDto.class);
+        return loadGsonInstance().fromJson(json,WeatherDto.class);
     }
 
     private String readWeabSite(String url){
