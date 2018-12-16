@@ -1,4 +1,4 @@
-package pl.robertozog.notesWithWeather.model.dto;
+package pl.bobowski.myOrganiserApp.model.dto;
 
 public class WeatherDto {
 

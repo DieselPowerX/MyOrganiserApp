@@ -1,4 +1,4 @@
-package pl.robertozog.notesWithWeather.model.services;
+package pl.bobowski.myOrganiserApp.model.services;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

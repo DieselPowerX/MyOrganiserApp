@@ -1,9 +1,9 @@
-package pl.robertozog.notesWithWeather.model.repository;
+package pl.bobowski.myOrganiserApp.model.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.robertozog.notesWithWeather.model.entities.UserEntity;
+import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 
 import java.util.Optional;
 

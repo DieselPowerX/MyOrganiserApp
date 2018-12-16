@@ -1,4 +1,4 @@
-package pl.robertozog.notesWithWeather.model.entities;
+package pl.bobowski.myOrganiserApp.model.entities;
 
 import lombok.Data;
 import javax.persistence.*;

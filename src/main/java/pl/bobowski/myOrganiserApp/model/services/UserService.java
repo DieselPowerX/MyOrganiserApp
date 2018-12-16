@@ -1,13 +1,12 @@
-package pl.robertozog.notesWithWeather.model.services;
+package pl.bobowski.myOrganiserApp.model.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.robertozog.notesWithWeather.model.UserSession;
-import pl.robertozog.notesWithWeather.model.entities.UserEntity;
-import pl.robertozog.notesWithWeather.model.forms.UserForm;
-import pl.robertozog.notesWithWeather.model.repository.UserRepository;
+import pl.bobowski.myOrganiserApp.model.UserSession;
+import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
+import pl.bobowski.myOrganiserApp.model.forms.UserForm;
+import pl.bobowski.myOrganiserApp.model.repository.UserRepository;
 
-import java.util.Date;
 import java.util.Optional;
 
 @Service

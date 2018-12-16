@@ -1,4 +1,4 @@
-package pl.robertozog.notesWithWeather.model.forms;
+package pl.bobowski.myOrganiserApp.model.forms;
 
 import lombok.Data;
 

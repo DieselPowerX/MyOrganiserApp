@@ -1,9 +1,9 @@
-package pl.robertozog.notesWithWeather.model.services;
+package pl.bobowski.myOrganiserApp.model.services;
 
 import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import pl.robertozog.notesWithWeather.model.dto.WeatherDto;
+import pl.bobowski.myOrganiserApp.model.dto.WeatherDto;
 
 import java.io.IOException;
 import java.io.InputStream;
