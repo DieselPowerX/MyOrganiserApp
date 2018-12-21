@@ -55,9 +55,9 @@ public class UserService {
 
     public String logErrors(UserForm user) {
         if (user.getLogin().isEmpty() || user.getPassword().isEmpty()) {
-            return "Login or password do not mach";
+            return "Fill in the fields ";
         }
-        return "Logged in";
+        return "Login or password do not mach";
     }
 
     private boolean checkPasswordRepeat(UserForm user) {

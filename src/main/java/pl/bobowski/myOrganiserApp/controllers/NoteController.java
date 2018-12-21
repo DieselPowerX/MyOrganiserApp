@@ -19,10 +19,9 @@ public class NoteController {
     @Value("${api.key}")
     String apiKey;
 
-    final
-    UserSession userSession;
-    NoteService noteService;
-    WeatherService weatherService;
+    final private UserSession userSession;
+    private NoteService noteService;
+    private WeatherService weatherService;
 
     @Autowired
     public NoteController(UserSession userSession, NoteService noteService, WeatherService weatherService) {

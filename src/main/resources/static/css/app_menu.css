@@ -44,39 +44,23 @@ body{
 
 .header{
     width: 100%;
-    padding-bottom: 10%;
-    padding-top: 5%;
+    padding-bottom: 15%;
+    padding-top: 10%;
 }
 
 .header div{
-    color: rgba(24, 24, 24, 0.74);
+    color: rgb(255, 255, 255);
     font-family: 'Exo', sans-serif;
     text-align: center;
     font-size: 4vw;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1),
-    -1px 1px 0 rgba(255, 255, 255, 0.1),
-    1px -1px 0 rgba(255, 255, 255, 0.1),
-    -1px -1px 0 rgba(255, 255, 255, 0.1),
-    0px 1px 0 rgba(255, 255, 255, 0.1),
-    0px -1px 0 rgba(255, 255, 255, 0.1),
-    -1px 0px 0 rgba(255, 255, 255, 0.1),
-    1px 0px 0 rgba(255, 255, 255, 0.1),
-    2px 2px 0 rgba(255, 255, 255, 0.1),
-    -2px 2px 0 rgba(255, 255, 255, 0.1),
-    2px -2px 0 rgba(255, 255, 255, 0.1),
-    -2px -2px 0 rgba(255, 255, 255, 0.1),
-    0px 2px 0 rgba(255, 255, 255, 0.1),
-    0px -2px 0 rgba(255, 255, 255, 0.1),
-    -2px 0px 0 rgba(255, 255, 255, 0.1),
-    2px 0px 0 rgba(255, 255, 255, 0.1),
-    1px 2px 0 rgba(255, 255, 255, 0.1),
-    -1px 2px 0 rgba(255, 255, 255, 0.1),
-    1px -2px 0 rgba(255, 255, 255, 0.1),
-    -1px -2px 0 rgba(255, 255, 255, 0.1),
-    2px 1px 0 rgba(255, 255, 255, 0.1),
-    -2px 1px 0 rgba(255, 255, 255, 0.1),
-    2px -1px 0 rgba(255, 255, 255, 0.1),
-    -2px -1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4),
+    -1px 1px 0 rgba(0, 0, 0, 0.4),
+    1px -1px 0 rgba(0, 0, 0, 0.4),
+    -1px -1px 0 rgba(0, 0, 0, 0.4),
+    0px 1px 0 rgba(0, 0, 0, 0.4),
+    0px -1px 0 rgba(0, 0, 0, 0.4),
+    -1px 0px 0 rgba(0, 0, 0, 0.4),
+    1px 0px 0 rgba(0, 0, 0, 0.4)
 
 
 }
@@ -86,7 +70,7 @@ body{
 }
 
 .login{
-    height: 620px;
+    height: 670px;
     width: 260px;
     margin-left: 50%;
     margin-top: 150px;
