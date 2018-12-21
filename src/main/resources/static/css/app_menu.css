@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+    height: 100vh;
+    width: 100%;
+}
+
+.body{
+
+}
+.background-image{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+    width: auto;
+    height: auto;
+    background-image: url(https://assets.kenticocloud.com/c8286d4d-bff3-4363-913b-3483d8372a70/800eebd3-d173-47d5-9fde-ffc8632a2c37/Krakow.jpg);
+    -webkit-filter: blur(5px) ;
+    background-size: cover;
+}
+
+.grad{
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    right: 100%;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.header{
+    width: 100%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+}
+
+.header div{
+    color: rgba(24, 24, 24, 0.74);
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    font-size: 4vw;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1),
+    -1px 1px 0 rgba(255, 255, 255, 0.1),
+    1px -1px 0 rgba(255, 255, 255, 0.1),
+    -1px -1px 0 rgba(255, 255, 255, 0.1),
+    0px 1px 0 rgba(255, 255, 255, 0.1),
+    0px -1px 0 rgba(255, 255, 255, 0.1),
+    -1px 0px 0 rgba(255, 255, 255, 0.1),
+    1px 0px 0 rgba(255, 255, 255, 0.1),
+    2px 2px 0 rgba(255, 255, 255, 0.1),
+    -2px 2px 0 rgba(255, 255, 255, 0.1),
+    2px -2px 0 rgba(255, 255, 255, 0.1),
+    -2px -2px 0 rgba(255, 255, 255, 0.1),
+    0px 2px 0 rgba(255, 255, 255, 0.1),
+    0px -2px 0 rgba(255, 255, 255, 0.1),
+    -2px 0px 0 rgba(255, 255, 255, 0.1),
+    2px 0px 0 rgba(255, 255, 255, 0.1),
+    1px 2px 0 rgba(255, 255, 255, 0.1),
+    -1px 2px 0 rgba(255, 255, 255, 0.1),
+    1px -2px 0 rgba(255, 255, 255, 0.1),
+    -1px -2px 0 rgba(255, 255, 255, 0.1),
+    2px 1px 0 rgba(255, 255, 255, 0.1),
+    -2px 1px 0 rgba(255, 255, 255, 0.1),
+    2px -1px 0 rgba(255, 255, 255, 0.1),
+    -2px -1px 0 rgba(255, 255, 255, 0.1);
+
+
+}
+
+.header div span{
+    color: #5379fa !important;
+}
+
+.login{
+    height: 620px;
+    width: 260px;
+    margin-left: 50%;
+    margin-top: 150px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    background: rgba(0, 0, 0, 0.58);
+    border-radius: 25px;
+    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0);
+    z-index: -1;
+
+}
+
+.login div{
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+
+}
+.info{
+    margin-top: 30px;
+    text-align: center;
+}
+.login input[type=text]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.login input[type=password]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.login input[type=submit]{
+    width: 260px;
+    height: 35px;
+    background: rgba(252, 250, 255, 0.81);
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.login input[type=submit]:hover{
+    opacity: 0.8;
+}
+
+.login input[type=submit]:active{
+    opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=submit]:focus{
+    outline: none;
+}
+
+::-webkit-input-placeholder{
+    color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+    color: rgba(255,255,255,0.6);
+}
