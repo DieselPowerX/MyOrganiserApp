@@ -13,7 +13,7 @@ body{
 }
 
 .body{
-
+    padding-top: 130px;
 }
 .background-image{
     position: fixed;
@@ -72,8 +72,7 @@ body{
 .login{
     height: 670px;
     width: 260px;
-    margin-left: 50%;
-    margin-top: 150px;
+    margin: 0 auto;
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 5%;

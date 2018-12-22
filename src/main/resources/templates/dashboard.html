@@ -5,6 +5,7 @@
     <title>Dashboard</title>
 
     <link th:href="@{/css/app_dashboard.css}" rel="stylesheet">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -14,22 +15,30 @@
 
 <div style="text-align: center">
     <a href="/user/logout">Log out</a>
-
+    <i class="fas fa-undo"></i>
     <div class="notes">
-        <ul>
-            <li th:each="note : ${noteList}" style="list-style: none">
-                <span th:text="${'Title: ' + note.getTitle() + ' Message: ' + note.getMessage()}"></span>
-                <span th:style="${note.getDueDate().isAfter(currentDate) ? 'color: green' : 'color: red'}"
-                      th:text="${' Due date: ' + #temporals.format(note.getDueDate(), 'dd-MM-yyyy')}"></span>
-                <a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"> delete note</a>
-            </li>
-        </ul>
-        <form action="/user/dashboard/addnote" method="post" th:object="${note}">
-            <input type="text" th:field="*{title}" placeholder="title">
-            <input type="text" th:field="*{message}" placeholder="message">
-            <input type="date" th:field="*{dueDate}" placeholder="due date">
-            <input type="number" th:field="*{priority}" placeholder="priority">
-            <input type="submit" value="Add note"> <br> <br>
+        <div class="table">
+            <div class="tr-head">
+                <span style="text-align: left" class="td">Title</span>
+                <span style="text-align: left" class="td">Message</span>
+                <span class="td-">Due date</span>
+                <span class="td">Remove</span>
+            </div>
+
+                <div class="tr" th:each="note : ${noteList}">
+                    <span class="td" style="text-align: left;" th:text="${note.getTitle()}"></span>
+                    <span class="td" style="text-align: left;" th:text="${note.getMessage()}"></span>
+                    <b><span class="td" th:style="${note.getDueDate().isAfter(currentDate) ? 'color: greenyellow' : 'color: darkred'}"
+                          th:text="${#temporals.format(note.getDueDate(), 'dd-MM-yyyy')}"></span></b>
+                    <span class="td"><a th:href="@{'/user/dashboard/deletenote/'+ ${note.getId()}}"><i class="fas fa-trash-alt"></i></a></span>
+                </div>
+        </div>
+        <form class="tr" action="/user/dashboard/addnote" method="post" th:object="${note}">
+            <span class="td-form"><input type="text" th:field="*{title}" placeholder="title"></span>
+            <span class="td-form"><input type="text" th:field="*{message}" placeholder="message"></span>
+            <span class="td-form"><input type="date" th:field="*{dueDate}" placeholder="due date"></span>
+            <span class="td-form"><input type="number" th:field="*{priority}" placeholder="priority"></span>
+            <span class="td-form"><input type="submit" value="Add note"></span>
         </form>
     </div>
 
@@ -43,5 +52,6 @@
 </div>
 
 </div>
+
 </body>
 </html>

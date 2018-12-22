@@ -70,12 +70,12 @@ body{
 }
 
 .notes{
-    height: auto;
-    width: 100%;
-    margin-left: 5%;
+    width: fit-content;
+    margin: 0 auto;
     margin-top: 150px;
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 2%;
     background: rgba(0, 0, 0, 0.58);
     border-radius: 25px;
     box-shadow: 0px 30px 40px rgba(0, 0, 0, 0);
@@ -83,18 +83,18 @@ body{
 
 }
 
-.notes div{
+DIV.notes {
     font-family: 'Exo', sans-serif;
     font-size: 16px;
 
-
 }
+
 .info{
     margin-top: 30px;
     text-align: center;
 }
 .notes input[type=text]{
-     width: 250px;
+     width: 200px;
      height: 30px;
      background: transparent;
      border: 1px solid rgb(255, 255, 255);
@@ -106,20 +106,40 @@ body{
      margin-top: 10px;
  }
 
-.notes form{
-    padding: 0;
-    width: 100%;
-    height: auto;
+.notes a {
+    color: black;
 }
 
-.notes li{
-    text-align: center;
-    font-size: 20px;
+DIV.table
+{
+    display:table;
+    width: 100%;
+    padding: 2%;
     font-family: 'Exo', sans-serif;
 }
+FORM.tr, DIV.tr
+{
+    display:table-row;
+    font-size: 12px;
+}
+DIV.tr-head{
+    display:table-row;
+    font-size: 18px;
+}
+SPAN.td
+{
+    display:table-cell;
+}
+SPAN.td-form
+{
+    display:table-cell;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
 
 .notes input[type=date]{
-    width: 250px;
+    width: 200px;
     height: 30px;
     background: transparent;
     border: 1px solid rgb(255, 255, 255);
@@ -131,7 +151,7 @@ body{
     margin-top: 10px;
 }
 .notes input[type=number]{
-    width: 250px;
+    width: 200px;
     height: 30px;
     background: transparent;
     border: 1px solid rgb(255, 255, 255);
@@ -143,21 +163,9 @@ body{
     margin-top: 10px;
 }
 
-.notes input[type=password]{
-    width: 250px;
-    height: 30px;
-    background: transparent;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 3px;
-    color: #fff;
-    font-family: 'Exo', sans-serif;
-    font-size: 16px;
-    padding: 4px;
-    margin-top: 10px;
-}
 
 .notes input[type=submit]{
-    width: 260px;
+    width: 150px;
     height: 35px;
     background: rgba(252, 250, 255, 0.81);
     border: 1px solid #ffffff;
