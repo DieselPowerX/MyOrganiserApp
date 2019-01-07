@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.bobowski.myOrganiserApp.model.entities.NoteEntity;
 import pl.bobowski.myOrganiserApp.model.forms.NoteForm;
 import pl.bobowski.myOrganiserApp.model.repository.NoteRepository;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -6,7 +6,6 @@ import pl.bobowski.myOrganiserApp.model.UserSession;
 import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 import pl.bobowski.myOrganiserApp.model.forms.UserForm;
 import pl.bobowski.myOrganiserApp.model.repository.UserRepository;
-
 import java.util.List;
 import java.util.Optional;
 

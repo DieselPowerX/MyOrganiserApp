@@ -2,7 +2,6 @@ package pl.bobowski.myOrganiserApp.model.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
