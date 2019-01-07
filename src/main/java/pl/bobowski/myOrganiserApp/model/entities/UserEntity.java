@@ -23,6 +23,7 @@ public class UserEntity {
 
     public UserEntity(int id) {
         this.id = id;
+
     }
 
     public UserEntity(String login, String password, String city, String postCode) {

@@ -1,5 +1,6 @@
 package pl.bobowski.myOrganiserApp.model.dto;
 
+
 public class WeatherDto {
 
     private TempDto main;
@@ -13,8 +14,19 @@ public class WeatherDto {
         return clouds;
     }
 
+
     public static class CloudDto {
         private int all;
+
+        public String getCloudsState(){
+            if(all <= 10){
+                return"noClouds";
+            }else if (all <=60){
+                return"someClouds";
+            }else{
+                return"clouds";
+            }
+        }
 
         public int getAll() {
             return all;
@@ -37,4 +49,5 @@ public class WeatherDto {
             this.temp = temp;
         }
     }
+
 }
