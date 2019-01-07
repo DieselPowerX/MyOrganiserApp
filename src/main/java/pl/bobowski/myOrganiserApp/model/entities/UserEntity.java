@@ -17,6 +17,7 @@ public class UserEntity {
     private String city;
     @Column(name = "post_code")
     private String postCode;
+    private String phone;
 
     @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<NoteEntity> userNote;
@@ -26,11 +27,12 @@ public class UserEntity {
 
     }
 
-    public UserEntity(String login, String password, String city, String postCode) {
+    public UserEntity(String login, String password, String city, String postCode, String phone) {
         this.login = login;
         this.city = city;
         this.password = password;
         this.postCode = postCode;
+        this.phone = phone;
     }
 
     public UserEntity() {

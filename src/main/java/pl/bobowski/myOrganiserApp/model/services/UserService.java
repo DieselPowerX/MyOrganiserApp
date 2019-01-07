@@ -6,7 +6,6 @@ import pl.bobowski.myOrganiserApp.model.UserSession;
 import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 import pl.bobowski.myOrganiserApp.model.forms.UserForm;
 import pl.bobowski.myOrganiserApp.model.repository.UserRepository;
-
 import java.util.Optional;
 
 @Service
@@ -29,9 +28,14 @@ public class UserService {
         UserEntity userEntity = new UserEntity(user.getLogin(),
                 passwordHashService.hash(user.getPassword()),
                 user.getCity(),
-                user.getPostCode());
+                user.getPostCode(),
+                user.getPhoneNumber());
 
         userRepository.save(userEntity);
+    }
+
+    public Iterable<UserEntity> getAllUsers(){
+        return userRepository.findAll();
     }
 
     public String regErrors(UserForm user) {

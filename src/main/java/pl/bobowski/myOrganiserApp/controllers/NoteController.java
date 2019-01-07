@@ -34,12 +34,12 @@ public class NoteController {
 
     @GetMapping("/{user}/dashboard")
     public String getDashboard(Model model){
-
-        model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()));
-        model.addAttribute("note", new NoteForm());
-        model.addAttribute("currentDate", noteService.getCurrentDate());
-        model.addAttribute("weather", weatherService.loadWeather(userSession.getCity(), apiKey));
-        model.addAttribute("city", userSession.getCity());
+        model.addAttribute("noteList", noteService.getAllNotes(userSession.getId()))
+                .addAttribute("note", new NoteForm())
+                .addAttribute("currentDate", noteService.getCurrentDate())
+                .addAttribute("weather", weatherService.loadWeather(userSession.getCity(), apiKey))
+                .addAttribute("city", userSession.getCity())
+                .addAttribute("user",userSession.getLoginUser());
         return "dashboard";
     }
 

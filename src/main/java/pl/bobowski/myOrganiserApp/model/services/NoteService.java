@@ -34,8 +34,8 @@ public class NoteService {
         noteRepository.deleteById(id);
     }
 
-    public List<NoteEntity> getAllNotes(int id) {
-        return sortedList(noteRepository.findByUser_Id(id));
+    public List<NoteEntity> getAllNotes(int userId) {
+        return sortedList(noteRepository.findByUser_Id(userId));
 
     }
 

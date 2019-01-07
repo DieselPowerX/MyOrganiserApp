@@ -14,4 +14,5 @@ public class UserSession {
     private int id;
     private String loginUser;
     private String city;
+    private String phone;
 }

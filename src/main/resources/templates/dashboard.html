@@ -14,29 +14,33 @@
 <div class="body">
 
 <div style="text-align: center">
-    <a href="/user/logout">Log out</a>
-    <i class="fas fa-undo"></i>
     <div class="notes">
-            <div class="weather">
-                <td>
-                    <span th:switch="${weather.getClouds().getCloudsState()}">
-                        <span th:case="'someClouds'">
-                            <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128780.svg">
-                        </span>
-                        <span th:case="'clouds'">
-                            <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128751.svg">
-                        </span>
-                        <span th:case="'noClouds'">
-                            <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128781.svg">
-                        </span>
-
+        <div class="user">
+            <span th:text="'Hello ' + ${user}"></span>
+        </div>
+        <div class="log">
+            <a style="color: mistyrose" href="/user/logout">Log out</a>
+            <i class="fas fa-undo"></i>
+        </div>
+        <div class="weather">
+            <td>
+                <span th:switch="${weather.getClouds().getCloudsState()}">
+                    <span th:case="'someClouds'">
+                        <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128780.svg">
                     </span>
-                </td>
-                <h1 th:text="${'Weather for: ' + city}"></h1>
-                <h2 th:text="${'Temp: ' + weather.getTempDto().getTemp() + 'C'}"></h2>
-            </div>
+                    <span th:case="'clouds'">
+                        <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128751.svg">
+                    </span>
+                    <span th:case="'noClouds'">
+                        <img class="img-fluid" src="https://image.flaticon.com/icons/svg/128/128781.svg">
+                    </span>
+                </span>
+            </td>
+            <h1 th:text="${'Weather for: ' + city}"></h1>
+            <h2 th:text="${'Temp: ' + weather.getTempDto().getTemp() + 'C'}"></h2>
+        </div>
         <div class="table">
-            <div class="tr-head">
+            <div th:if="${noteList.size() > 0}" class="tr-head">
                 <span style="text-align: left" class="td">Title</span>
                 <span style="text-align: left" class="td">Message</span>
                 <span class="td-">Due date</span>
