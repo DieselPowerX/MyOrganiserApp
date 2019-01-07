@@ -55,10 +55,10 @@
                     </div>
             </div>
             <form class="tr" action="/user/dashboard/addnote" method="post" th:object="${note}">
-                <span class="td-form"><input type="text" th:field="*{title}" placeholder="title"></span>
-                <span class="td-form"><input type="text" th:field="*{message}" placeholder="message"></span>
-                <span class="td-form"><input type="date" th:field="*{dueDate}" placeholder="due date"></span>
-                <span class="td-form"><input type="number" th:field="*{priority}" placeholder="priority"></span>
+                <span class="td-form"><input type="text" th:name="title" placeholder="title"></span>
+                <span class="td-form"><input type="text" th:name="message" placeholder="message"></span>
+                <span class="td-form"><input type="date" th:name="dueDate" placeholder="due date"></span>
+                <span class="td-form"><input type="number" th:name="priority" value="" placeholder="priority"></span>
                 <span class="td-form"><input type="submit" value="Add note"></span>
             </form>
         </div>
