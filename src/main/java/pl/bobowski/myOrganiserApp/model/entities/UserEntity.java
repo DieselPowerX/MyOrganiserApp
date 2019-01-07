@@ -1,11 +1,14 @@
 package pl.bobowski.myOrganiserApp.model.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "user")
 public class UserEntity {
 
@@ -33,8 +36,5 @@ public class UserEntity {
         this.password = password;
         this.postCode = postCode;
         this.phone = phone;
-    }
-
-    public UserEntity() {
     }
 }

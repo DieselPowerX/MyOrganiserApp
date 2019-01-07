@@ -21,7 +21,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String showMenu(Model model) {
         model.addAttribute("logUser", new UserForm());
         model.addAttribute("regUser", new UserForm());
@@ -34,7 +34,7 @@ public class UserController {
         if (userService.regErrors(user).equals("Data correct")) {
             userService.addUser(user);
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @PostMapping("/user/login")
@@ -45,12 +45,12 @@ public class UserController {
             return "redirect:/" + user.getLogin() + " /dashboard";
 
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/user/logout")
     public String logOut() {
         userService.resetSession();
-        return "redirect:/";
+        return "redirect:/login";
     }
 }

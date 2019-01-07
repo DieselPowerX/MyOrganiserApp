@@ -15,9 +15,9 @@ import java.time.LocalDate;
 public class AlertJob {
 
     final
-    NoteService noteService;
-    SmsService smsService;
-    UserService userService;
+    private NoteService noteService;
+    private SmsService smsService;
+    private UserService userService;
 
     @Autowired
     public AlertJob(NoteService noteService, SmsService smsService, UserService userService) {
@@ -40,7 +40,6 @@ public class AlertJob {
                 sendMessages(note, user);
             }
         }
-
 
     }
 
