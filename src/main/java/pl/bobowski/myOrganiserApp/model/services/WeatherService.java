@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import pl.bobowski.myOrganiserApp.model.dto.WeatherDto;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;

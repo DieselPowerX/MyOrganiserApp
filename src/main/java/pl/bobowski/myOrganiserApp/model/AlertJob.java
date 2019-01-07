@@ -8,7 +8,6 @@ import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 import pl.bobowski.myOrganiserApp.model.services.NoteService;
 import pl.bobowski.myOrganiserApp.model.services.SmsService;
 import pl.bobowski.myOrganiserApp.model.services.UserService;
-
 import java.time.LocalDate;
 
 @Component

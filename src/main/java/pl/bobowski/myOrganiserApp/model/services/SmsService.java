@@ -1,6 +1,7 @@
 package pl.bobowski.myOrganiserApp.model.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.bobowski.myOrganiserApp.model.UserSession;
 import pl.bobowski.myOrganiserApp.model.entities.NoteEntity;
@@ -24,12 +25,15 @@ public class SmsService {
         this.userSession = userSession;
     }
 
+    @Value("${token}")
+    String token;
+
     public void sendSms(NoteEntity noteEntity, UserEntity userEntity) {
 
 
         try {
 
-            OAuthClient client = new OAuthClient("JjoOfl8HKmwv82MF3n7mDgnhAectLMPUWVpRTJyL");
+            OAuthClient client = new OAuthClient(token);
             SmsFactory smsApi = new SmsFactory(client);
             String phoneNumber = userEntity.getPhone();
             SMSSend action = smsApi.actionSend()

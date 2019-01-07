@@ -6,6 +6,8 @@ import pl.bobowski.myOrganiserApp.model.UserSession;
 import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 import pl.bobowski.myOrganiserApp.model.forms.UserForm;
 import pl.bobowski.myOrganiserApp.model.repository.UserRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,7 +36,7 @@ public class UserService {
         userRepository.save(userEntity);
     }
 
-    public Iterable<UserEntity> getAllUsers(){
+    public List<UserEntity> getAllUsers(){
         return userRepository.findAll();
     }
 
