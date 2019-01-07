@@ -33,7 +33,7 @@ public class SmsService {
             SmsFactory smsApi = new SmsFactory(client);
             String phoneNumber = userEntity.getPhone();
             SMSSend action = smsApi.actionSend()
-                    .setText("Czesc: " + userEntity.getLogin() + "Wydarzenie: " + noteEntity.getTitle() + "uległo przedawnieniu z deniem: " + noteEntity.getDueDate())
+                    .setText("Czesc: " + userEntity.getLogin() + " Wydarzenie: " + noteEntity.getTitle() + " zostało zapisane na dzień: " + noteEntity.getDueDate())
                     .setTo(phoneNumber);
 
             StatusResponse result = action.execute();
@@ -47,6 +47,8 @@ public class SmsService {
         } catch (
                 SmsapiException e) {
             e.printStackTrace();
+        }catch (NoClassDefFoundError e){
+            System.out.println("do nothing");
         }
     }
 }

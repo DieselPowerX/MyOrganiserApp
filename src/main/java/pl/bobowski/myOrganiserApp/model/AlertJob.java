@@ -26,17 +26,17 @@ public class AlertJob {
         this.userService = userService;
     }
 
-    @Scheduled(fixedDelay = 1000000)
-    private void checkIfShouldSendMessage(){
+    @Scheduled(cron = "0 0 9 * * ?")
+    private void getListOfUsers(){
         for (UserEntity user : userService.getAllUsers()) {
-            getAllNotesToSend(user);
+            getAllNotesToSendFromUser(user);
         }
     }
 
-    private void getAllNotesToSend(UserEntity user) {
+    private void getAllNotesToSendFromUser(UserEntity user) {
 
         for (NoteEntity note : noteService.getAllNotes(user.getId())) {
-            if(note.getDueDate().isAfter(LocalDate.now())){
+            if(note.getDueDate().isEqual(LocalDate.now())){
                 sendMessages(note, user);
             }
         }
