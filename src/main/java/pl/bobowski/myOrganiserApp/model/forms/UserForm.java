@@ -1,8 +1,12 @@
 package pl.bobowski.myOrganiserApp.model.forms;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserForm {
     private String login;
     private String password;
@@ -11,3 +15,5 @@ public class UserForm {
     private String postCode;
     private String phoneNumber;
 }
+
+

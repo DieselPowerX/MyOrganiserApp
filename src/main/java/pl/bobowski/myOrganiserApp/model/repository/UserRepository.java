@@ -14,5 +14,6 @@ public interface UserRepository extends CrudRepository<UserEntity, Integer> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM user WHERE login =?1")
     Optional<UserEntity> getUserByLogin(String login);
+
     List<UserEntity> findAll();
 }
