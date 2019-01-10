@@ -60,7 +60,7 @@ public class UserService {
 
     public String logErrors(UserForm user) {
         if (user.getLogin().isEmpty() || user.getPassword().isEmpty()) {
-            return "Fill in the fields ";
+            return "Fill in the fields";
         }
         return "Login or password do not mach";
     }

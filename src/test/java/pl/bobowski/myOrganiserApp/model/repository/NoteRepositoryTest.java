@@ -10,6 +10,8 @@ import pl.bobowski.myOrganiserApp.model.entities.UserEntity;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//todo
+/*
 @SpringBootTest
 class NoteRepositoryTest {
 
@@ -34,4 +36,4 @@ class NoteRepositoryTest {
         noteRepository.save(someNote);
         assertTrue(1==1);
     }
-}
+}*/
