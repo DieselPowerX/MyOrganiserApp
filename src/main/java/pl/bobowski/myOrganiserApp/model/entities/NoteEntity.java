@@ -31,4 +31,12 @@ public class NoteEntity {
         this.user = new UserEntity(userId);
     }
 
+    public NoteEntity(String title, String message, LocalDate dueDate, int priority, UserEntity userEntity) {
+        this.title = title;
+        this.message = message;
+        this.dueDate = dueDate;
+        this.priority = priority;
+        this.user = userEntity;
+    }
+
 }
